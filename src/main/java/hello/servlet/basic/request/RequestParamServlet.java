@@ -26,21 +26,20 @@ public class RequestParamServlet extends HttpServlet {
         req.getParameterNames();
 
         // 2. 모든 파라미터 조회
-        System.out.println("전체 파라미터 조회 ( Iterator로 돌린 다음, forEaxh를 사용하는 경우 ) [Names -> 배 반환 ] ");
+        System.out.println("전체 파라미터 조회 ( Iterator로 돌린 다음, forEaxh를 사용하는 경우 ) [Names 사용 -> 배 반환 ] ");
         req.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> System.out.println(paramName + "="+ req.getParameter(paramName )));
 
 
-
         // 3. 특정 파라미터 조회
-        System.out.println("특정 파라미터 조회 [Parmeter -> String 반환 ]");
+        System.out.println("특정 파라미터 조회 [Parmeter 사용 -> String 반환 ]");
         String username = req.getParameter("username");
 
         System.out.println("username = "+ username);
 
 
         // 4. 특정 파라미터의 동일 키에 복수값 조회.
-        System.out.println("특정 파라미터의 동일키에 복수값 조회 [Values -> Array로 반환 ]");
+        System.out.println("이름이 같은 여러 파라미터 조회 [Values 사용 -> Array로 반환 ]");
         String[] usernames = req.getParameterValues("username");
         for( String name : usernames ){
             System.out.println( "username = "+ name);
