@@ -24,18 +24,22 @@ servlet 기반 웹 프로젝트
     2-2. 서버에서 (서블릿이 제공한) HTTPServletRequest객체로 HTTP요청메세지를 파싱해보
         ㄴ 2-1-1. HTTP '요청' 데이터 유형별 구현방법.
             ㄴ 요청 유형1. GET URL -> 파라미터(단일,복수, 같은이름의 여러값) 조회.
-            ㄴ 요청 유형2. POST FORM -> http메세지(contentType값에 쿼리스트링 파싱해주는 값설정 )를 서버로 보냄 -> GET과 같은 방식으로 조회. 
-               원리1. [Http] body에 담기는 데이터는 contentType 정의는 필수이다.
+            ㄴ 요청 유형2. 두 클라이언트(웹브라우저,postman)에서 post Form형태의 http메세지 안의 파라미터 조회 및 원리
 
-               원리2. [form] form용 contentType은 사전에 정의되어있으며, application/x-www-form-url-lencoded GET과 같은 형식으로 요청한다.
+               원리1. [테스트] 결국 http메세지이기 때문에, 다양한 클라이언트에서 요청가능하다.
+		        ㄴ 웹브라우저 > form( 웹브라저 form용 contentType을 자동 샛팅 > 쿼리스트링으로 자동 파싱 ) > http 메세지
+		        ㄴ 포스트맨 > contentType 체크박스 설정 >. http 메세지 
 
-               원리3. [파라미터] application/x-www-form-url-lencoded은 파라미터를 “쿼리스트링파라미터로 자동 파싱”해준다. 이는 GET의 쿼리스트링파라미터와 같은 형식이다.
 
-	           원리4. [조회] 그렇기때문에 “서버”는 GET/POST 모두 request.Paramerter 하나로 처리(조회)할 수 있다.
+               원리2. [Http] body에 담기는 데이터는 contentType 정의는 필수이다.
 
-               원리5. [테스트] 결국 http메세지이기 때문에, 다양한 클라이언트에서 요청가능하다.
-		        ㄴ 웹브라우저 > form( 웹브라 form용 contentType을 자동 샛팅) > http 메세지
-		        ㄴ 포스트맨 > contentType 선택 >. http 메세지 
+               원리3. [form] form용 contentType은 사전에 정의되어있으며, application/x-www-form-url-lencoded GET과 같은 형식으로 요청한다.
+
+               원리4. [파라미터] application/x-www-form-url-lencoded은 파라미터를 “쿼리스트링파라미터로 자동 파싱”해준다. 이는 GET의 쿼리스트링파라미터와 같은 형식이다.
+
+	           원리5. [조회] 그렇기때문에 “서버”는 GET/POST 모두 request.Paramerter 하나로 처리(조회)할 수 있다.
+
+              
                 
             ㄴ 요청 유형3. API 바디 > 단순 텍스트
             ㄴ 요청 유형4. API 바디 > JSON
