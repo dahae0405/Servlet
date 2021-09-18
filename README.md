@@ -6,8 +6,9 @@ servlet 기반 웹 프로젝트
     -   개발자 대신 서블릿이 HTTP요청메세지를 편리하게 사용할 수 있도록 
     HttlServletRequest 객체에 담아서 제공한다.
 
-<h3> 2. HTTPServlet : HTTP 스팩과 , <br/>
-    HTTP메세지로 요청/응답이 올경우, 쿼리파라미터,Form,단순텍스트,json을 파싱해보자.</h3>
+<h3> 2. HTTPServlet </h3>
+   - HTTP 스팩과 , <br/>
+      HTTP메세지로 요청/응답이 올경우, 쿼리파라미터,Form,단순텍스트,json을 파싱하여 요청조회, 응답생성해보자
 
 
     2-1. 이게 HTTP 메세지 스팩( 구조 및 구성) 이고,
