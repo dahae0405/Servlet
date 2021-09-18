@@ -23,14 +23,14 @@ servlet 기반 웹 프로젝트
                 - message body 데이터 직접 조회.
 
     2-2. HTTP 요청데이터 <=> 개발자는 서버에서 서블릿이 생성한 HTTPServletRequest객체를 사용.
-        ㄴ 2-1-1. HTTP '요청' 데이터 유형별 구현방법.
+        ㄴ 2-1-1. HTTP '요청' 데이터 유형별 조회 구현방법.
             ㄴ 요청 유형1. API start Line > GET 쿼리 파라미터
             ㄴ 요청 유형2. API 바디 > POST HTML FORM
             ㄴ 요청 유형3. API 바디 > 단순 텍스트
             ㄴ 요청 유형4. API 바디 > JSON
 
     ㄴ 2-3. HTTP 응답데이터 <= > 개발자는 서버에서 서블릿이 생성한 HTTPServletResponse객체를 사용.
-        ㄴ 2-3-1. HTTP의 '응답' 데이터 유형별 구현방법. 
+        ㄴ 2-3-1. HTTP의 '응답' 데이터 유형별 응답 생성 구현방법. 
             ㄴ 응답 유형1. API 메세지 BODY (단순 텍스트, HTML)
             ㄴ 응답 유형2. API 메세지 BODY (JSON)
 
