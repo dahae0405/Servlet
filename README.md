@@ -58,4 +58,8 @@ servlet 기반 웹 프로젝트
 
         
 <h3> 3. AdvanceServlet </h3>
-      - servlet으로 member 저장/조회/테스트 
+      - servlet으로 member 저장/조회/테스트
+
+      - 정적 html 응답
+      - 동적 html 응답
+        ㄴ write메서드에 html 넣는것이 불편 => 이것을 담당하는 JSP 적용
