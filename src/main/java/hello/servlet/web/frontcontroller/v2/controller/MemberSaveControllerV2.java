@@ -2,8 +2,8 @@ package hello.servlet.web.frontcontroller.v2.controller;
 
 import hello.servlet.domain.member.Member;
 import hello.servlet.domain.member.MemberRepository;
-import hello.servlet.web.frontcontroller.v2.ControllerV1;
 import hello.servlet.web.frontcontroller.v2.ControllerV2;
+import hello.servlet.web.frontcontroller.v2.MyView;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,7 +17,7 @@ public class MemberSaveControllerV2 implements ControllerV2 {
 
     // 회원 입력 등록 컨트롤러
     @Override
-    public void process( HttpServletRequest request , HttpServletResponse response ) throws ServletException, IOException{
+    public MyView process( HttpServletRequest request , HttpServletResponse response ) throws ServletException, IOException{
 
         String username = request.getParameter("username");
         int age = Integer.parseInt(request.getParameter("age") );
@@ -28,8 +28,12 @@ public class MemberSaveControllerV2 implements ControllerV2 {
         request.setAttribute( "member", member );
 
         String viewPath = "/WEB-INF/views/save-result.jsp";
-        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
-        dispatcher.forward(request, response);
+//        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
+//        dispatcher.forward(request, response);
+        return new MyView(viewPath);
+
+
+
     }
 
 }

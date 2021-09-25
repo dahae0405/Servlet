@@ -14,29 +14,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *  1. FrontControllerServletV1 도입
+ *  -v2
+ *  ㄴ V1에서 디스패처를 리펙토리
  *
- *  ㄴ FrontControllerServletV1 : URI 매핑 정보 수집
+ *  리펙토리
+ *  ㄴ 뷰 클래스 =  MYVIEW는 뷰 관리모델 + 뷰 디스패처 기능
  *
- *
- *
- *  2. controller 인터페이스 도입
- *
- *  ㄴ ControllerV1 : [[정의]]
- *
- *  ㄴ 입력폼 / 목록 / 저장은 컨트롤로 개별파일로 개발.
+ *  -V1
+ *  ㄴ 모든 요청은 프론트 컨트롤러
+ *  ㄴ 요청 분담은 URI별 컨트롤러명로 매핑
  *
 
  * **/
-@WebServlet(name="FrontControllerServletV2",urlPatterns = "/front-controller/v1/*")
+@WebServlet(name="FrontControllerServletV2",urlPatterns = "/front-controller/v2/*")
 class FrontControllerServletV2 extends HttpServlet {
 
     private Map<String, ControllerV2> controllerV1Map = new HashMap<>();
 
     public FrontControllerServletV2(){
-        controllerV1Map.put("/front-controller/v1/members/new-form", new MemberFormControllerV2() );
-        controllerV1Map.put("/front-controller/v1/members/save", new MemberSaveControllerV2() );
-        controllerV1Map.put("/front-controller/v1/members", new MemberListControllerV2() );
+        controllerV1Map.put("/front-controller/v2/members/new-form", new MemberFormControllerV2() );
+        controllerV1Map.put("/front-controller/v2/members/save", new MemberSaveControllerV2() );
+        controllerV1Map.put("/front-controller/v2/members", new MemberListControllerV2() );
     }
 
     @Override
@@ -51,7 +49,8 @@ class FrontControllerServletV2 extends HttpServlet {
             return;
         }
 
-        controller.process( req, resp);
+        MyView view = controller.process( req, resp);
+        view.render(req, resp);
         
     }
 }
